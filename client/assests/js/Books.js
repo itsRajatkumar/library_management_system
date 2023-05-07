@@ -1,16 +1,18 @@
 // function to get all books from the server
 const getBooks = () => {
-  fetch("http://localhost:3000/api/v1/books/get-books", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
+  fetch(
+    "https://library-management-system-lemon.vercel.app/api/v1/books/get-books",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
       if (data.status) {
-        console.log(data);
         const books = data.books;
         let output = "";
         const BooksTableHeader = document.getElementById("table_headings");
@@ -48,21 +50,22 @@ const getBooks = () => {
 };
 
 const getBooksWithBorrower = () => {
-  fetch("http://localhost:3000/api/v1/books/get-books-with-borrower", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
+  fetch(
+    "https://library-management-system-lemon.vercel.app/api/v1/books/get-books-with-borrower",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
       if (data.status) {
-        console.log(data, "bowwer");
         const books = data.books;
         let output = "";
         const BooksTableHeader = document.getElementById("table_headings");
-        console.log(BooksTableHeader);
         BooksTableHeader.innerHTML = `
             <th>Book ID</th>
               <th>Book Name</th>
@@ -95,17 +98,19 @@ const getBooksWithBorrower = () => {
 
 // function to get book details from the server by id
 const getBookDetails = (id) => {
-  fetch(`http://localhost:3000/api/v1/books//get-books/${id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
+  fetch(
+    `https://library-management-system-lemon.vercel.app/api/v1/books/get-books/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
       if (data.status) {
-        console.log(data);
         const book = data.book;
         if (localStorage.getItem("role") === "LIBRARIAN") {
           document.getElementById("title").value = book.title;
@@ -151,14 +156,17 @@ const addBook = (e) => {
     description,
   };
 
-  fetch("http://localhost:3000/api/v1/books/add-book", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-    body: JSON.stringify(book),
-  })
+  fetch(
+    "https://library-management-system-lemon.vercel.app/api/v1/books/add-book",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(book),
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
       if (data.status) {
@@ -166,23 +174,24 @@ const addBook = (e) => {
       } else {
         alert(result.error || result.message);
       }
-      console.log(data);
     })
     .catch((err) => console.log(err));
 };
 
 // function to delete book
 const deleteBook = (id) => {
-  fetch(`http://localhost:3000/api/v1/books/delete-book/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
+  fetch(
+    `https://library-management-system-lemon.vercel.app/api/v1/books/delete-book/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data.status) {
         window.location.reload();
       } else {
@@ -209,17 +218,19 @@ const updateBook = (e) => {
     description,
   };
 
-  fetch(`http://localhost:3000/api/v1/books/update-book/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-    body: JSON.stringify(book),
-  })
+  fetch(
+    `https://library-management-system-lemon.vercel.app/api/v1/books/update-book/${id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(book),
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data.status) {
         window.location.href = "books.html";
       } else {
@@ -231,17 +242,19 @@ const updateBook = (e) => {
 
 // function to get all books borrowed by a user
 const getBooksBorrowedByUser = (id) => {
-  fetch(`http://localhost:3000/api/v1/books/get-books-borrowed-by-user/${id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
+  fetch(
+    `https://library-management-system-lemon.vercel.app/api/v1/books/get-books-borrowed-by-user/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
       if (data.status) {
-        console.log(data);
         const books = data.books;
         let output = "";
         const url = window.location.href.split("/");
@@ -293,16 +306,18 @@ const getBooksBorrowedByUser = (id) => {
 };
 
 const borrowBook = (id) => {
-  fetch(`http://localhost:3000/api/v1/books/borrow-book/${id}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
+  fetch(
+    `https://library-management-system-lemon.vercel.app/api/v1/books/borrow-book/${id}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data.status) {
         window.location.href = "books.html";
       } else {
@@ -313,16 +328,18 @@ const borrowBook = (id) => {
 };
 
 const returnBook = (id) => {
-  fetch(`http://localhost:3000/api/v1/books/return-book/${id}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
+  fetch(
+    `https://library-management-system-lemon.vercel.app/api/v1/books/return-book/${id}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data.status) {
         window.location.href = "books.html";
       } else {
@@ -334,17 +351,19 @@ const returnBook = (id) => {
 
 // get statistics
 const getStatistics = () => {
-  fetch(`http://localhost:3000/api/v1/books/get-stats`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
+  fetch(
+    `https://library-management-system-lemon.vercel.app/api/v1/books/get-stats`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
       if (data.status) {
-        console.log(data);
         const stats = data.stats[0];
         document.getElementById("booksCount").innerHTML = stats.totalBooks;
         document.getElementById("usersCount").innerHTML = stats.totalUsers;
@@ -365,20 +384,16 @@ if (add_book_form) add_book_form.addEventListener("submit", addBook);
 
 // handle books page
 window.addEventListener("load", function () {
-  console.log("Window loaded");
   if (window.location.href.indexOf("books.html") > -1) {
-    console.log("Books page");
     getBooks();
   }
 });
 
 // handle user update page details
 window.addEventListener("load", function () {
-  console.log("Window loaded");
   if (window.location.href.indexOf("view-borrowed-books-by-user.html") > -1) {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
-    console.log(id);
     getBooksBorrowedByUser(id);
   }
 });
@@ -386,7 +401,6 @@ window.addEventListener("load", function () {
 // handle user update page details
 window.addEventListener("load", function () {
   const url = window.location.href.split("/");
-  console.log(url);
   if (
     window.location.href.indexOf("/member/") > -1 &&
     ((url[url.length - 2] === "member" && url[url.length - 1] === "") ||
@@ -399,11 +413,9 @@ window.addEventListener("load", function () {
 
 // handle user update page details
 window.addEventListener("load", function () {
-  console.log("Window loaded");
   if (window.location.href.indexOf("member/view-book-details.html") > -1) {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
-    console.log(id);
     getBookDetails(id);
   }
 });
@@ -420,24 +432,19 @@ const clickDeleteHandler = (e) => {
 
 // click edit handler to navigate to update book page
 const clickEditHandler = (e) => {
-  console.log(e);
   window.location.href = `update-book.html?id=${e}`;
 };
 
 // handle books page
 const clickViewHandler = (e) => {
-  console.log(e);
   window.location.href = `view-book-details.html?id=${e}`;
 };
 
 // handle update book page
 window.addEventListener("load", function () {
-  console.log("Window loaded");
   if (window.location.href.indexOf("update-book.html") > -1) {
-    console.log("update-book page");
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
-    console.log(id);
     getBookDetails(id);
   }
 });
@@ -450,10 +457,8 @@ const viewBorrowerCheckBox = document.getElementById("view-borrower");
 if (viewBorrowerCheckBox) {
   viewBorrowerCheckBox.addEventListener("change", function () {
     if (this.checked) {
-      console.log("checked");
       getBooksWithBorrower();
     } else {
-      console.log("unchecked");
       getBooks();
     }
   });
@@ -463,7 +468,6 @@ const clickBorrowHandler = (e) => {
   // get confirmation from user
   const confirmation = confirm("Are you sure you want to borrow this book?");
   if (confirmation) {
-    console.log(e);
     borrowBook(e);
     // borrowBook(e);
   }
@@ -473,7 +477,6 @@ const clickReturnHandler = (e) => {
   // get confirmation from user
   const confirmation = confirm("Are you sure you want to return this book?");
   if (confirmation) {
-    console.log(e);
     returnBook(e);
   }
 };
@@ -483,7 +486,6 @@ const clickReturnHandler = (e) => {
 // handle user update page details
 window.addEventListener("load", function () {
   const url = window.location.href.split("/");
-  console.log(url);
   if (
     window.location.href.indexOf("/librarian/") > -1 &&
     ((url[url.length - 2] === "librarian" && url[url.length - 1] === "") ||

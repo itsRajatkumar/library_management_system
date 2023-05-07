@@ -1,15 +1,17 @@
 const getUsers = () => {
-  fetch("http://localhost:3000/api/v1/auth/users", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
+  fetch(
+    "https://library-management-system-lemon.vercel.app/api/v1/auth/users",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
       if (data.status) {
-        console.log(data);
         const users = data.users;
         let output = "";
         users.forEach((user) => {
@@ -36,17 +38,19 @@ const getUsers = () => {
 };
 
 const getUserDetails = (id) => {
-  fetch(`http://localhost:3000/api/v1/auth/users/${id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
+  fetch(
+    `https://library-management-system-lemon.vercel.app/api/v1/auth/users/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
       if (data.status) {
-        console.log(data);
         const user = data.user;
         document.getElementById("username").value = user.username;
         document.getElementById("role").value = user.role;
@@ -58,16 +62,18 @@ const getUserDetails = (id) => {
 };
 
 const deleteUser = (id) => {
-  fetch(`http://localhost:3000/api/v1/auth/delete/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
+  fetch(
+    `https://library-management-system-lemon.vercel.app/api/v1/auth/delete/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data.status) {
         window.location.reload();
       } else {
@@ -91,17 +97,19 @@ const updateUser = (e) => {
     role,
   };
 
-  fetch(`http://localhost:3000/api/v1/auth/update/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-    body: JSON.stringify(user),
-  })
+  fetch(
+    `https://library-management-system-lemon.vercel.app/api/v1/auth/update/${id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(user),
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data.status) {
         window.location.href = "users.html";
       } else {
@@ -129,17 +137,19 @@ const updateUserPassword = (e) => {
     password,
   };
 
-  fetch(`http://localhost:3000/api/v1/auth/update-password/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-    body: JSON.stringify(user),
-  })
+  fetch(
+    `https://library-management-system-lemon.vercel.app/api/v1/auth/update-password/${id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(user),
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data.status) {
         window.location.href = "users.html";
       } else {
@@ -166,17 +176,19 @@ const changePasswordByUser = (e) => {
     newPassword: password,
   };
 
-  fetch(`http://localhost:3000/api/v1/auth/change-password`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-    body: JSON.stringify(user),
-  })
+  fetch(
+    `https://library-management-system-lemon.vercel.app/api/v1/auth/change-password`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(user),
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data.status) {
         window.location.reload();
       } else {
@@ -203,7 +215,7 @@ const deleteAccount = (e) => {
   };
 
   fetch(
-    `http://localhost:3000/api/v1/auth/delete-by-user/${localStorage.getItem(
+    `https://library-management-system-lemon.vercel.app/api/v1/auth/delete-by-user/${localStorage.getItem(
       "userId"
     )}`,
     {
@@ -217,10 +229,8 @@ const deleteAccount = (e) => {
   )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data.status) {
         localStorage.clear();
-        console.log("exist");
         window.location.href = "/login.html";
       } else {
         alert(data.message || data.error);
@@ -231,7 +241,6 @@ const deleteAccount = (e) => {
 
 // handle books page
 window.addEventListener("load", function () {
-  console.log("Window loaded");
   if (window.location.href.indexOf("users.html") > -1) {
     getUsers();
   }
@@ -256,7 +265,6 @@ const clickUserPasswordEditHandler = (id) => {
 
 // handle user update page details
 window.addEventListener("load", function () {
-  console.log("Window loaded");
   if (window.location.href.indexOf("update-user.html") > -1) {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
@@ -266,7 +274,6 @@ window.addEventListener("load", function () {
 
 // handle user update page details
 window.addEventListener("load", function () {
-  console.log("Window loaded");
   if (window.location.href.indexOf("update-user.html") > -1) {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");

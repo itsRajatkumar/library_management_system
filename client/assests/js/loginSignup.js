@@ -9,16 +9,18 @@ const loginUser = async (e) => {
     password,
   };
 
-  const response = await fetch("http://localhost:3000/api/v1/auth/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+  const response = await fetch(
+    "https://library-management-system-lemon.vercel.app/api/v1/auth/login",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }
+  );
 
   const result = await response.json();
-  console.log(result);
 
   if (result.status) {
     localStorage.setItem("token", result.token);
@@ -47,16 +49,18 @@ const signupUser = async (e) => {
     role,
   };
 
-  const response = await fetch("http://localhost:3000/api/v1/auth/register", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+  const response = await fetch(
+    "https://library-management-system-lemon.vercel.app/api/v1/auth/register",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }
+  );
 
   const result = await response.json();
-  console.log(result);
 
   if (result.status) {
     alert(result.error || result.message);
