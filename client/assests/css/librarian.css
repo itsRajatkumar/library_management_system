@@ -1,0 +1,76 @@
+.statics{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+
+}
+
+.statics .statics__item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+    transition: all .3s ease-in-out;
+}
+
+.books_container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.books_container .title_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.books_container .title_box .title{
+    font-size: 1.5rem;
+    font-weight: 600;
+}   
+
+
+.books_container .books_table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.books_container .books_table thead{
+    background-color: #f1f1f1;
+}
+
+.books_container .books_table thead tr th{
+    padding: 1rem;
+    text-align: left;
+}
+
+.books_container .books_table tbody tr td{
+    padding: 1rem;
+    text-align: left;
+}
+
+.books_container .books_table tbody tr td a{
+    color: #000;
+    text-decoration: none;
+}
+
+.books_container .books_table tbody tr td a:hover{
+    color: #000;
+    text-decoration: underline;
+}
+
+
+/* make every 2n row color change */
+.books_container .books_table tbody tr:nth-child(2n){
+    background-color: #f1f1f1;
+}

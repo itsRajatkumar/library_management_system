@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management</title>
+    <link rel="stylesheet" href="/assests/css/mainPage.css">
+    <link rel="stylesheet" href="/assests/css/common.css">
+    <link rel="stylesheet" href="/assests/css/librarian.css">
+    <link rel="stylesheet" href="/assests/css/auth.css">
+    <script src="/assests/js/auth.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <a href="../index.html">Library Management</a>
+        </div>
+        <div class="navbar__links">
+            <!-- home, books, users, logout -->
+            <a href="./index.html">Home</a>
+            <a href="./books.html">Books</a>
+            <a href="./profile.html">Profile</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </div>
+    </nav>
+    <div class="container flex_column">
+        <div class="profile_password_update">
+            <h1>Profile</h1>
+                    <div class="auth_container">
+                        <div class="auth__form">
+                            <h1>Update</h1>
+                            <form id="auth__change_password_form">
+                                <div class="form__group">
+                                    <label for="oldpassword">Old Password</label>
+                                    <input type="password" name="oldPassword" id="oldPassword" placeholder="Enter Old password" required>
+                                </div>
+                                <div class="form__group">
+                                    <label for="password">New Password</label>
+                                    <input type="password" name="password" id="password" placeholder="Enter New password" required>
+                                </div>
+                                <div class="form__group">
+                                    <label for="confirmPassword">Confirm New Password</label>
+                                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm New password"
+                                        required>
+                                </div>
+                                <div class="form__group">
+                                    <button type="submit" class="btn btn__primary">Change Password</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+        </div>
+        <div class="profile_password_update">
+            <h1>Delete Account</h1>
+            <div class="auth_container">
+                <div class="auth__form">
+                    <h1>Enter password to delete account</h1>
+                    <form id="auth__delete_account_form">
+                        <div class="form__group">
+                            <input type="password" name="deletePassword" id="deletePassword" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form__group">
+                            <button class="btn btn__delete">Delete My Account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/assests/js/users.js"></script>
+
+</html>

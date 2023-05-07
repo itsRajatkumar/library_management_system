@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="/assests/css/common.css">
+    <link rel="stylesheet" href="/assests/css/auth.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <a href="../index.html">Library Management</a>
+        </div>
+        <div class="navbar__links">
+            <a href="../index.html">Home</a>
+            <a href="../auth/signup.html">Signup</a>
+            <a href="../auth/login.html">Login</a>
+        </div>
+    </nav>
+    <section class="container">
+        <div class="auth_container">
+            <div class="auth__form">
+                <h1>Signup</h1>
+                <form id="auth__signup__form">
+                    <div class="form__group">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" placeholder="Enter your Username" required>
+                    </div>
+                    <!-- select role dropdown -->
+                    <div class="form__group">
+                        <label for="username">Select Role</label>
+                        <select name="role" id="role" required>
+                            <option value="MEMBER">Member</option>
+                            <option value="LIBRARIAN">Librarian</option>
+                        </select>
+                        
+                    </div>
+                    <div class="form__group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form__group">
+                        <button type="submit" class="btn btn__primary">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- javascript -->
+    <script src="/assests/js/loginSignup.js"></script>
+</body>
+
+</html>

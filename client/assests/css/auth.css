@@ -1,0 +1,110 @@
+.auth_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100vh;
+    background-color: #f3f4f6;
+
+}
+
+.auth_container .auth__form{
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+.auth_container .auth__form .form__header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.auth_container .auth__form .form__header h1{
+    font-size: 2rem;
+    font-weight: 500;
+    color: #1d4ed8;
+}
+
+.auth_container .auth__form .form__group{
+    margin-bottom: 1rem;
+}
+
+.auth_container .auth__form .form__group label{
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #1d4ed8;
+    margin-bottom: .5rem;
+}
+
+.auth_container .auth__form .form__group input{
+    width: 100%;
+    padding: .5rem;
+    border-radius: 5px;
+    border: 1px solid #1d4ed8;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1d4ed8;
+}
+
+.auth_container .auth__form .form__group select{
+    width: 100%;
+    padding: .5rem;
+    border-radius: 5px;
+    border: 1px solid #1d4ed8;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1d4ed8;
+}
+
+.auth_container .auth__form .form__group input:focus{
+    border-color: #2563eb;
+}
+
+.auth_container .auth__form .form__group .form__btn{
+    width: 100%;
+    padding: .5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #1d4ed8;
+    cursor: pointer;
+}
+
+.auth_container .auth__form .form__group .form__btn:hover{
+    background-color: #2563eb;
+}
+
+.auth_container .auth__form .form__group .form__btn:focus{
+    background-color: #2563eb;
+}
+
+.auth_container .auth__form .form__group .form__btn:active{
+    background-color: #2563eb;
+}
+
+.auth_container .auth__form .form__group .btn{
+    display: block;
+    width: 30%;
+    padding: .5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #1d4ed8;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}

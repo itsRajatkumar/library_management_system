@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="/assests/css/common.css">
+    <link rel="stylesheet" href="/assests/css/auth.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <a href="../index.html">Library Management</a>
+        </div>
+        <div class="navbar__links">
+            <a href="./index.html">Home</a>
+            <a href="./books.html">Books</a>
+            <a href="./users.html">Users</a>
+            <a id="logout_button">Logout</a>
+        </div>
+    </nav>
+    <section class="container">
+        <div class="auth_container">
+            <div class="auth__form">
+                <h1>Add Book</h1>
+                <form id="add_book_form">
+                    <div class="form__group">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" placeholder="Enter book Title" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="author">Author</label>
+                        <input type="text" name="author" id="author" placeholder="Enter author" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="description">Description</label>
+                        <input type="text" name="description" id="description" placeholder="Enter description" required>
+                    </div>
+                    <div class="form__group">
+                        <button type="submit" class="btn btn__primary">Add Book</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- javascript -->
+    <script src="/assests/js/Books.js"></script>
+</body>
+
+</html>
