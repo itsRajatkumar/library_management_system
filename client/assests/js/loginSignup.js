@@ -30,7 +30,7 @@ const loginUser = async (e) => {
 
     if (result.role === "LIBRARIAN") window.location.href = "/librarian";
     else if (result.role === "MEMBER") window.location.href = "../member";
-    else window.location.href = "./error.html";
+    else window.location.href = "/librarian/error.html";
   } else {
     alert(result.error || result.message);
   }
@@ -64,7 +64,7 @@ const signupUser = async (e) => {
 
   if (result.status) {
     alert(result.error || result.message);
-    window.location.href = "./login.html";
+    window.location.href = "/librarian/login.html";
   } else {
     alert(result.error || result.message);
   }
